@@ -1,20 +1,9 @@
-// Set url for to query the fighter data
-
-map_data_url = "/api/map_data"
-
-d3.json(map_data_url).then(data => {
- 
-console.log(data)
-
-});
-
 
 // Create selector for fighter 1
 fighter_list_url = "/api/fighter_list"
 
 d3.json(fighter_list_url).then((fighter) => {
     fighter_list = fighter.name;
-    console.log(fighter);
     for (let [key, name] of Object.entries(fighter_list)) {
         var option = d3.select("#selFighter1").append("option");
         option.text(name);
@@ -101,13 +90,9 @@ function predictwinner(){
     var fighter1 = dropdownMenu1.property("value");
     var fighter2 = dropdownMenu2.property("value");
 
-    console.log(fighter1)
-    console.log(fighter2)
-
     fight_predict_url = "/api/predictor/" + fighter1 + "/" + fighter2;
 
     d3.json(fight_predict_url).then(data => {
-        console.log(data);
         for (let [key, value] of Object.entries(data)) {
             outcome.text(`${value}`);
         }

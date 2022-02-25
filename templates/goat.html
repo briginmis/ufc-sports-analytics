@@ -5,7 +5,7 @@
   <div class="container">
     <!-- Title of the page here -->
     <div class="row">
-      <h1>Statistics</h1>
+      <h1>The Ultimate Fighter</h1>
     </div>
     <hr>
 
@@ -13,19 +13,24 @@
     <div class="row">
 
       <!-- First Column -->
-      <div class="col-md-12">
-
+      <div class="col-md-6">
         <div class="header">
-          <h3>Where are they located?</h3>
+          <h3>Analysis</h3>
           <br>
         </div>
         <div class = "body">
-          <h6>This map details where UFC fighters are located, and the average win ratio per country.</h6>
-          <div id = "Map">
-            <div class='tableauPlaceholder' id='viz1645783927121' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='countrydashboard&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1645783927121');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-          </div>
+          <h6>We have used logistic regression as the basis of our fight predictor machine learning model.</h6>
+          <br>
+          <h6>From the model, we have identified the most significant features which determine whether a fighter will win or lose. However, each feature has a significance of no more than 0.2. Furthermore, the features have been split based on whether they are in the blue corner and red corner, and therefore are not accurate.</h6>
+          <br>
         </div>
       </div>
+        <!-- Second Column -->
+        <div class="col-md-6">
+            <div id = "features">
+                <div class='tableauPlaceholder' id='viz1645786419861' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='modelfeatures&#47;Sheet4' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1645786419861');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
+        </div>
     </div>
 
     <hr>

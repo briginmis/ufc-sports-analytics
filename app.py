@@ -55,40 +55,13 @@ def statistics():
 def fight_predictor():
     return render_template("predictor.html")
 
+@app.route("/goat")
+def goat():
+    return render_template("goat.html")
+
 # -------------HTML pages routes END------------- #
 
 # -------------API routes------------- #
-@api.route("/map_data")
-class base_map(Resource):
-    def get(self):
-        df = pd.read_sql('select*from map_data',engine)
-        base_map = df[["location", "date"]]
-        base_map = df.groupby("location").count()
-        return base_map.to_dict()
-
-@api.route("/map_win_ratio")
-class win_ratio_map(Resource):
-    def get(self):
-        df = pd.read_sql('select*from map_data',engine)
-        win_ratio_map = df[["location","winratio"]]
-        win_ratio_map = win_ratio_map.groupby("location").mean()
-        return win_ratio_map.to_dict()
-
-@api.route("/stance_graph")
-class stance_graph(Resource):
-    def get(self):
-        df = pd.read_sql('select*from goat_data',engine)
-        stance_df = df[["Stance","winratio"]]
-        stance_df = stance_df.groupby("Stance").mean()
-        return stance_df.to_dict()
-
-@api.route("/age_graph")
-class age_graph(Resource):
-    def get(self):
-        df = pd.read_sql('select*from goat_data',engine)
-        age_df = df[["age","date"]]
-        age_df = age_df.groupby("Stance").count()
-        return age_df.to_dict()
 
 @api.route("/fighter_list")
 class fighter_list(Resource):
