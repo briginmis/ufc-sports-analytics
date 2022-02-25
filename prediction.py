@@ -1,10 +1,10 @@
 import pandas as pd 
 import joblib
-from tensorflow.keras.utils import to_categorical
 
 # Create function to clean inputs for ML prediction
 
-def clean_cols(fighter1, fighter2):
+def clean_cols(fighter1:pd.DataFrame, fighter2:pd.DataFrame):
+    # Create lists to clean column headers
     B_column_list = ["B_fighter",
                     "B_wins",
                     "B_losses",
@@ -26,7 +26,9 @@ def clean_cols(fighter1, fighter2):
                     "B_win_by_Submission",
                     "B_win_by_TKO_Doctor_Stoppage",
                     "B_age",
-                    "B_Stance"
+                    "B_Stance",
+                    "B_Height_cms",
+                    "B_Reach_cms"
                     ]
 
     R_column_list = ["R_fighter",
@@ -50,7 +52,9 @@ def clean_cols(fighter1, fighter2):
                     "R_win_by_Submission",
                     "R_win_by_TKO_Doctor_Stoppage",
                     "R_age",
-                    "R_Stance"
+                    "R_Stance",
+                    "R_Height_cms",
+                    "R_Reach_cms"
                     ]
 
     new_column_list = ["name",
@@ -74,7 +78,9 @@ def clean_cols(fighter1, fighter2):
                     "win_by_Submission",
                     "win_by_TKO_DoctoStoppage",
                     "age",
-                    "Stance"
+                    "Stance",
+                    "Height_cms",
+                    "Reach_cms"
                     ]
     
     R_col_replace = {}
@@ -82,6 +88,7 @@ def clean_cols(fighter1, fighter2):
     R_count = 0
     B_count = 0
 
+    # Create dictionaries to replace column headers
     for header in new_column_list:
         R_col_replace[header] = R_column_list[R_count]
         R_count +=1
@@ -90,31 +97,52 @@ def clean_cols(fighter1, fighter2):
         B_col_replace[header] = B_column_list[B_count]
         B_count +=1
 
+    # Clean dataframe columns using dictionaries
     fighter1 = fighter1[new_column_list]
     fighter1 = fighter1.rename(columns = B_col_replace)
-    fighter1 = fighter1.drop("B_fighter", axis = 1)
+
     fighter2 = fighter2[new_column_list]
     fighter2 = fighter2.rename(columns = R_col_replace)
-    fighter2 = fighter1.drop("R_fighter", axis = 1)
 
     return fighter1, fighter2
 
 
 # Create function to predict fight winner
-def predict(fighter1, fighter2):
+def predict(fighter1:pd.DataFrame, fighter2:pd.DataFrame):
 
     # load model binaries 
     model = joblib.load("ml_models/model.sav")
     X_scaler = joblib.load("ml_models/x_scaler.sav")
-    
+    features = joblib.load("ml_models/features.sav")
+
+    # clean dataframes for inputs
+    fighter1_input = fighter1.drop("B_fighter", axis = 1).reset_index(drop = True)
+    fighter2_input = fighter2.drop("R_fighter", axis = 1).reset_index(drop = True)
+
     # combine data into one dataframe 
-    input_data = pd.concat([fighter1,fighter2], axis = 1, ignore_index = True)
+    combined_df = pd.concat([fighter1_input,fighter2_input], axis = 1)
+
+    # Create dataframe using features
+    features_df = pd.DataFrame(columns=features, index = [0])
+
+    # Use pandas to get dummies
+    X = pd.get_dummies(combined_df)
+
+    # Combine features df and X_scaled df
+    input_df = pd.merge(features_df, X, how = "outer").drop(labels = 0, axis = 0)
+    input_df = input_df.fillna(0)
+    input_df
 
     # scale the X input df 
-    X_scaled = X_scaler.transform(input_data)
+    X_scaled = X_scaler.transform(input_df)
 
     # obtain prediction (y) 
     prediction = model.predict(X_scaled)
+
+    if prediction[0] == 0:
+        winner = fighter1["B_fighter"]
+    else:
+        winner = fighter2["R_fighter"]
     
     # Return prediction
-    return prediction
+    return winner

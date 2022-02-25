@@ -98,23 +98,22 @@ class fighter_list(Resource):
         return fighter_list.to_dict()
 
 @api.route("/predictor/<selectedFighter>")
-class predict(Resource):
+class fighter_data(Resource):
     def get(self, selectedFighter):
         df = pd.read_sql('select*from goat_data',engine)
         df_selected_fighter = df.loc[df["name"] == selectedFighter]
         df_selected_fighter = df_selected_fighter.drop("date", axis = 1)
         return df_selected_fighter.to_dict()
 
-@api.route("/prediction/<selectedFighter1>/<selectedFighter2>")
-class predictor(Resource):
+@api.route("/predictor/<selectedFighter1>/<selectedFighter2>")
+class prediction(Resource):
     def get(self, selectedFighter1, selectedFighter2):
         df = pd.read_sql('select*from goat_data',engine)
-        df = df.drop(["date", "winratio"], axis = 1)
         df_selected_fighter1 = df.loc[df["name"] == selectedFighter1]
         df_selected_fighter2 = df.loc[df["name"] == selectedFighter2]
-        clean_cols(df_selected_fighter1,df_selected_fighter2)
-        prediction = predict(df_selected_fighter1,df_selected_fighter2)
-        return prediction
+        fighter1, fighter2 = clean_cols(df_selected_fighter1,df_selected_fighter2)
+        prediction = predict(fighter1,fighter2)
+        return prediction.to_dict()
 
 # -------------API routes END------------- #
 
