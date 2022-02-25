@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+  <div class="container">
+    <!-- Title of the page here -->
+    <div class="row">
+      <h1>Who is the Ultimate Fighter?</h1>
+    </div>
+    <hr>
+
+    <!-- New Row for the content -->
+    <div class="row">
+
+      <!-- First Column -->
+      <div class="col-md-8">
+
+        <div class="header">
+          <h3>Project Overview</h3>
+          <br>
+        </div>
+        <div class = "body">
+          <h6>The UFC (Ultimate Fighting Championship) is one of the fastest growing sports organisations in the world, earning approximately US$4.9 billion in 2021, whilst only being founded in 1993. The UFC is the largest MMA (Mixed Martial Arts) promotion in the world, with 689 fighters contracted to fight in any location in the world, so long as it holds a caged octagon. </h6>
+          <br>
+          <h6>MMA, as its name suggests, is a hybrid combat sport which incorporates techniques from a variety of martial arts such as boxing, muay thai, karate, BJJ (brazilian jiu jitsu) and wrestling. The rules of MMA are simple; you have 3 (or 5), 5 minute rounds to fight an opponent of the same weight class. You can win via KO (knock out), TKO (technical knock-out), submission, or decision. Because there are so many different ways to win a fight, it is difficult to predict whether someone will win or lose. This is what makes this beautifully brutal sport fascinating to watch.</h6>
+          <br>
+          <h6>When fight fans talk about the best fighters in the world, a single question always arises - "Who is the pound-for-pound greatest fighter in the world?". In summary, this question aims to identify the single best fighter in the world, regardless of size. There are many different factors to consider when determining who is the greatest of all time - How many fights have they won? Who did they win against? How did they win? Can anyone else beat them?</h6>
+          <br>
+          <h6>The main aim of this project is to determine who is the Ultimate Fighter. Who is the pound-for-pound best fighter in the world? Who is the Greatest of All Time?</h6>
+          <br>
+          <h6>Once we have answered this question, we can then use our knowledge to evaluate upcoming fights. Using Machine Learning, we will predict who will win a fight based on an end user's selection of two fighters.</h6>
+        </div>
+
+  {% include "dependency.html" %}
+
+  <script src="../static/js/index.js"></script>
+
+{% endblock %}

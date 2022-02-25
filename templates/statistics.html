@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+  <div class="container">
+    <!-- Title of the page here -->
+    <div class="row">
+      <h1>Statistics</h1>
+    </div>
+    <hr>
+
+    <!-- First row -->
+    <div class="row">
+
+      <!-- First Column -->
+      <div class="col-md-12">
+
+        <div class="header">
+          <h3>Where are they located?</h3>
+          <br>
+        </div>
+        <div class = "body">
+          <h6>This map details where UFC fighters are located, and the average win ratio per country.</h6>
+          <div id = "Map"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+        <!-- Second row -->
+        <div class="row">
+
+          <!-- First Column -->
+          <div class="col-md-6">
+    
+            <div class="header">
+              <h3>How old are they?</h3>
+              <br>
+            </div>
+            <div class = "body">
+              <h6>This graph details the number of fighters per age group as at 2021.</h6>
+              <div id = "AgeChart"></div>
+            </div>
+          </div>
+
+          <!-- First Column -->
+          <div class="col-md-6">
+
+            <div class="header">
+              <h3>What stance do they use?</h3>
+            </div>
+            <div class = "body">
+              <br>
+              <h6>This graph details the average win ratio for each stance.</h6>
+              <div id = "StanceChart"></div>
+            </div>
+          </div>
+        </div>
+
+  {% include "dependency.html" %}
+
+  <script src="../static/js/statistics.js"></script>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+  <div class="container">
+    <!-- Title of the page here -->
+    <div class="row">
+      <h1>Fight predictor</h1>
+    </div>
+    <hr>
+
+    <!-- First row -->
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="header">
+          <h3>Model overview</h3>
+          <br>
+        </div>
+        <div class = "body">
+          <h6>The fight predictor uses a linear regression model and is 63% accurate.</h6>
+          <h6>The model was trained using fight data from 2010 to 2021.</h6>
+          <h6>Prediction will be based on the latest available data as at 2021.</h6>
+          <h6>The model does not consider weight class in its prediction.</h6>
+        </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Second row -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="header">
+            <h3>How to use this model</h3>
+            <br>
+            </div>
+            <div class = "body">
+            <h6>1. Select two fighters from the drop down menus.</h6>
+            <h6>2. Select "Predict Winner" button.</h6>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- Third row -->    
+    <div class="row">
+        <div class="col-md-6"> 
+            <h3 id = "text-center">Fighter 1</h3>  
+            <br>
+        <select id="selFighter1"> </select>
+        <div id="FighterStats1">
+          <br>
+          <table class = "table table-bordered" id = "table1">
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+        </div>
+
+        <div class="col-md-6">   
+            <h3 id = "text-center">Fighter 2</h3>
+            <br>
+        <select id="selFighter2"> </select>
+        <br>
+        <div id="FighterStats2">
+          <table class = "table table-bordered" id = "table2">
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- Fourth row -->
+    <div class="row">
+        <div class="col-md-12"> 
+            <div class = "text-center">
+                <button type ="button" class ="btn btn-danger margin-auto">Predict Winner</button>
+            </div>
+            <br>
+            <div>
+                <h4 id = "text-center">The winner is...</h4>
+                <h4 id = "text-center" class = "winner"></h4>
+            </div>
+        </div>
+    </div>
+
+  {% include "dependency.html" %}
+
+  <script src="../static/js/predictor.js"></script>
+
+{% endblock %}
