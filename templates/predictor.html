@@ -5,109 +5,101 @@
   <div class="container">
     <!-- Title of the page here -->
     <div class="row">
-      <h1>Fight predictor</h1>
+      <h1 class = "text-white">Fight predictor</h1>
     </div>
-    <hr>
-
+    <br>
     <!-- First row -->
     <div class="row">
       <div class="col-md-12">
-
         <div class="header">
-          <h3>Model overview</h3>
-          <br>
+          <h3 class = "text-white">Model overview</h3>
         </div>
         <div class = "body">
-          <h6>The fight predictor uses a linear regression model and is 63% accurate.</h6>
-          <h6>The model was trained using fight data from 2010 to 2021.</h6>
-          <h6>Prediction will be based on the latest available data as at 2021.</h6>
-          <h6>The model does not consider weight class in its prediction.</h6>
+          <p class = "text-white">The fight predictor model is based on a linear regression model, and is 63% accurate. The model was trained using fight data from 2010 to 2021. Prediction will be based on the latest available data as at 2021.</p>
+          <p class = "text-white">The model does not consider weight class in its prediction, however it does consider height and reach.</p>
         </div>
-        </div>
+      </div>
     </div>
-    <br>
 
     <!-- Second row -->
     <div class="row">
         <div class="col-md-12">
 
             <div class="header">
-            <h3>How to use this model</h3>
-            <br>
+            <h5 class = "text-white">How to use this model</h5>
             </div>
             <div class = "body">
-            <h6>1. Select two fighters from the drop down menus.</h6>
-            <h6>2. Click "Predict Winner" button.</h6>
+              <ol>
+                <li class = "text-white">Select two fighters from the drop down menus.</li>
+                <li class = "text-white">Click "Predict Winner" button.</li>  
+              </ol>
             </div>
         </div>
     </div>
-
-    <br>
     <hr>
-    <br>
 
     <!-- Third row -->    
     <div class="row">
-        <div class="col-md-6"> 
-            <h3 id = "text-center">Fighter 1</h3>  
+        <div class="col-md-4"> 
+            <h3 id = "text-center" class = "text-white" >Blue Corner</h3>  
             <br>
             <div id = "text-center">
               <select id="selFighter1"> </select>
             </div>
         <div id="FighterStats1">
           <br>
-          <table class = "table table-striped">
+          <table class = "table table-sm">
             <thead>
               <tr>
-                <td>Statistic</td>
-                <td>Detail</td>
+                <th class = "text-white">Statistic</th>
+                <th class = "text-white">Detail</th>
               </tr>
             </thead>
-            <tbody id = "table1">
+            <tbody id = "table1" class = "text-white">
             </tbody>
           </table>
         </div>
         </div>
 
-        <div class="col-md-6">   
-            <h3 id = "text-center">Fighter 2</h3>
+    <div class = "col-md-4">
+      <br>
+      <div class = "text-center">
+        <button id = "predictbutton" type ="button" class ="btn btn-light btn-lg">Predict Winner</button>
+    </div>
+    <br>
+    <br>
+
+    <div>
+        <h4 id = "text-center" class = "text-white">The winner is...</h4>
+    </div>
+    <div id = "text-center">
+      <h2 id = "winner" class = "text-white"></h2>
+    </div>
+    </div>
+
+        <div class="col-md-4">   
+            <h3 id = "text-center" class = "text-white">Red Corner</h3>
             <br>
             <div id = "text-center">
               <select id="selFighter2"> </select>
             </div>
         <div id="FighterStats2">
           <br>
-          <table class = "table table-striped">
+          <table class = "table table-sm">
             <thead>
               <tr>
-                <td>Statistic</td>
-                <td>Detail</td>
+                <th class = "text-white">Statistic</th>
+                <th class = "text-white">Detail</th>
               </tr>
             </thead>
-            <tbody id = "table2">
+            <tbody id = "table2" class = "text-white">
             </tbody>
           </table>
         </div>
-        </div>
+      </div>
     </div>
-
-    <br>
-
-    <!-- Fourth row -->
-    <div class="row">
-        <div class="col-md-12"> 
-            <div class = "text-center">
-                <button id = "predictbutton" type ="button" class ="btn btn-danger">Predict Winner</button>
-            </div>
-            <br>
-            <div>
-                <h4 id = "text-center">The winner is...</h4>
-            </div>
-            <div id = "text-center">
-              <h4 id = "winner"></h4>
-            </div>
-        </div>
-    </div>
+    <div style="height: 500px;"></div>
+  </div>
 
   {% include "dependency.html" %}
 

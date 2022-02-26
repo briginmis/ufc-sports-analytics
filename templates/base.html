@@ -1,6 +1,6 @@
 <html>
 
-<head>
+<header>
 
     <title>Who is the Ultimate Fighter?</title>
     <meta charset="utf-8" />
@@ -27,10 +27,19 @@
       crossorigin=""
     />
     <link href="../static/css/styles.css" rel="stylesheet">
-</head>
+
+    <style>
+      #intro {
+        background-image: url("https://www.stadia-magazine.com/wp-content/uploads/2019/03/LEAD_001_ufc_barclays.jpg");
+        width: 100%;
+        background-attachment: fixed;
+        background-repeat: repeat;
+      }
+    </style>
+
+</header>
             
     {% include "navbar.html" %}
     {% block body %} {% endblock %}
-    {% include "footer.html" %}
 
 </html>

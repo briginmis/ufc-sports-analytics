@@ -5,7 +5,8 @@
   <div class="container">
     <!-- Title of the page here -->
     <div class="row">
-      <h1>The Ultimate Fighter</h1>
+      <br>
+      <h1 class = "text-white">The Ultimate Fighter</h1>
     </div>
     <hr>
 
@@ -15,22 +16,19 @@
       <!-- First Column -->
       <div class="col-md-6">
         <div class="header">
-          <h3>Analysis</h3>
-          <br>
+          <h3 class = "text-white">Analysis</h3>
         </div>
         <div class = "body">
-          <h6>We have used logistic regression as the basis of our fight predictor machine learning model.</h6>
-          <br>
-          <h6>From the model, we have identified the most significant features which determine whether a fighter will win or lose. However, each feature has a significance of no more than 0.2. Furthermore, the features have been split based on whether they are in the blue corner and red corner, and therefore are not accurate.</h6>
-          <br>
+          <p class = "text-white">We have used logistic regression as the basis of our fight predictor machine learning model. The model is 63% accurate.</p>
+          <p class = "text-white">From the model, we have identified the 5 most significant features which determine whether a fighter will win or lose.</p>
+          <p class = "text-white">To determine who is the Pound for Pound greatest fighter, we will identify the fighter who has the top 5 features.</p>
         </div>
       </div>
-        <!-- Second Column -->
-        <div class="col-md-6">
-            <div id = "features">
-                <div class='tableauPlaceholder' id='viz1645786419861' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='modelfeatures&#47;Sheet4' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1645786419861');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-            </div>
+      <div class="col-md-6">
+        <div id = "features">
+          <div class='tableauPlaceholder' id='viz1645885918989' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='modelfeatures&#47;Sheet92' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1645885918989');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
         </div>
+    </div>
     </div>
 
     <hr>
@@ -42,31 +40,32 @@
           <div class="col-md-6">
     
             <div class="header">
-              <h3>How old are they?</h3>
+              <h3 class = "text-white">Verdict</h3>
               <br>
             </div>
             <div class = "body">
-              <h6>This graph details the number of fighters per age group as at 2021.</h6>
-              <div id = "AgeChart">
-                <div class='tableauPlaceholder' id='viz1645784145156' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='fightersagegroup&#47;Sheet8' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1645784145156');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+              <p class = "text-white">We have obtained a list of all fighters and applied filters based on the 5 features identified above.</p>
+              <p class = "text-white">To meet the features criteria, we have applied the following filters:</p>
+              <ol>
+                <li class = "text-white">The median age of fighters is 32, therefore we have filtered for fighters aged between 29 and 35.</li>
+                <li class = "text-white">Fighters must have no less than 15 wins.</li>
+                <li class = "text-white">There were no fighters who had more than 15 wins and an open stance. Fighter wins has a higher importance, therefore priority is given to this feature.</li>
+                <li class = "text-white">Reach is dependent on weight, therefore no filters were applied on this feature.</li>
+                <li class = "text-white">Wins by split decision indicate that a fighter did not convincingly win, therefore we have filtered for fighters who have not had any split decision wins.</li>
+              </ol>
+              <p class = "text-white">Based on our analysis, the greatest fighter of all time is...</p>
+              <div id = "GOATchart">
+                <div class='tableauPlaceholder' id='viz1645888135108' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='modelfeatures&#47;Sheet12' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1645888135108');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
               </div>
             </div>
           </div>
 
-          <!-- First Column -->
+          <!-- Second Column -->
           <div class="col-md-6">
-
-            <div class="header">
-              <h3>What stance do they use?</h3>
-            </div>
-            <div class = "body">
-              <br>
-              <h6>This graph details the average win ratio for each stance.</h6>
-              <div id = "StanceChart">
-                <div class='tableauPlaceholder' id='viz1645776648151' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='winratiostance&#47;Sheet2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1645776648151');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-              </div>
-            </div>
+            <div style="height: 50px;"></div>
+            <img src="https://www.rockawave.com/wp-content/uploads/2021/01/142656955_263865468428216_420125125091627384_n.jpg" width = "600" alt="imagenotfound">
           </div>
+          <div style="height: 100px;"></div>
         </div>
 
   {% include "dependency.html" %}
