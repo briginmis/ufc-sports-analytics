@@ -10,7 +10,11 @@ When fight fans talk about the best fighters in the world, a single question alw
 
 The main aim of this project is to determine who is the Ultimate Fighter. Who is the pound-for-pound best fighter in the world? Who is the Greatest of All Time?
 
-Once we have answered this question, we can then use our knowledge to evaluate upcoming fights. Using Machine Learning, we will predict who will win a fight based on an end user's selection of two fighters.
+We will begin by training a machine learning model to predict the outcome of a fight. Using the most significant features identified from the machine learning model, we can then determine who is the Greatest Fighter of All Time.
+
+We will also provide some fun statistics to display the diverse range of MMA athletes.
+
+You can view the final solution [here](http://ufcprediction-env.eba-3sujs7yp.ap-southeast-2.elasticbeanstalk.com/).
 
 ## Method
 
