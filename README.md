@@ -19,11 +19,10 @@ You can view the final solution [here](http://ufcprediction-env.eba-3sujs7yp.ap-
 ## Method
 
 We will first identify the characteristics of the best fighters in the world: 
-    - Fighting style
-    - Country of birth
-    - Method of winning
-    - Age
-    - Stance (Orthodox vs Southpaw)
+- Fighting style
+- Method of winning
+- Age
+- Stance (Orthodox vs Southpaw)
 
 We will then use this information to determine who is the Ultimate Fighter? Which fighter possesses the characteristics of the best fighters in the world? 
 
@@ -35,29 +34,29 @@ We have tested the logistic regression model, random forest model and deep neura
 We have used a logistic regression model to create our fight predictor as it has the highest accuracy of 63%, compared to our random forest model with 57% accuracy and deep neural network with 55% accuracy.
 
 The model uses the following metrics:
--wins
--losses
--draw
--current_lose_streak
--current_win_streak
--avg_SIG_STR_landed
--avg_SIG_STR_pct
--avg_SUB_ATT
--avg_TD_landed
--avg_TD_pct
--longest_win_streak
--total_rounds_fought
--total_title_bouts
--win_by_Decision_Majority
--win_by_Decision_Split
--win_by_Decision_Unanimous
--win_by_KO/TKO
--win_by_Submission
--win_by_TKO_DoctoStoppage
--age
--Stance
--Height_cms
--Reach_cms
+- wins
+- losses
+- draw
+- current_lose_streak
+- current_win_streak
+- avg_SIG_STR_landed
+- avg_SIG_STR_pct
+- avg_SUB_ATT
+- avg_TD_landed
+- avg_TD_pct
+- longest_win_streak
+- total_rounds_fought
+- total_title_bouts
+- win_by_Decision_Majority
+- win_by_Decision_Split
+- win_by_Decision_Unanimous
+- win_by_KO/TKO
+- win_by_Submission
+- win_by_TKO_DoctoStoppage
+- age
+- Stance
+- Height_cms
+- Reach_cms
 
 # Solution 
 
