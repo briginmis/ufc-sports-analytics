@@ -25,58 +25,134 @@ We will then use this information to determine who is the Ultimate Fighter? Whic
 
 Using the knowledge obtained from the data, we will create a Machine Learning model to predict who will win a fight.
 
-## Project Timeline:
+# Model
+We have tested the logistic regression model, random forest model and deep neural network to build our machine learning model.
 
-Pre-work - Project Proposal; Data Sourcing
+We have used a logistic regression model to create our fight predictor as it has the highest accuracy of 63%, compared to our random forest model with 57% accuracy and deep neural network with 55% accuracy.
 
-- Week 1: 
-  - Day 1:
-    - Complete ETL with python using pandas
-    - Website wire-framing 
-    - Visualization mapping
-  - Day 2:
-    - Create basic HTML and CSS
-    - Predictions on data using Machine Learning
-    - Create basic Visualizations (JavaScript/Tableau)
-  - Day 3:
-    - Create Flask app and test AWS deployment
-    - Keep working on visualizations
+The model uses the following metrics:
+-wins
+-losses
+-draw
+-current_lose_streak
+-current_win_streak
+-avg_SIG_STR_landed
+-avg_SIG_STR_pct
+-avg_SUB_ATT
+-avg_TD_landed
+-avg_TD_pct
+-longest_win_streak
+-total_rounds_fought
+-total_title_bouts
+-win_by_Decision_Majority
+-win_by_Decision_Split
+-win_by_Decision_Unanimous
+-win_by_KO/TKO
+-win_by_Submission
+-win_by_TKO_DoctoStoppage
+-age
+-Stance
+-Height_cms
+-Reach_cms
 
-- Week 2:
-  - Day 1: 
-    - Fine-tune HTML, CSS
-    - Fine-tune visualizations
-  - Day 2:
-    - Polish up entire process and create presentation
-  - Day 3:
-    - Presentation Day
+# Solution 
+
+## Solution architecture 
+
+The solution architecture diagram was created using: https://draw.io/
+
+![solutionarchitecture.png](app/solutionarchitecture.png)
 
 
+# Usage
 
-## Tools:
+## How to install Python requirements/dependencies
+Activate your python environment, then run:
 
-- Python 
-  - APIs
-  - pandas
-  - ScikitLearn
-  
-- SQL
-  
-  - SQLAlchemy
-  
-- HTML
+```
+pip install -r requirements.txt
+```
+## How to run the code locally
 
-- CSS
-  
-  - Bootstrap
-  
-- JavaScript
-  - D3.js
-  - plotly.js
-  
-- Tableau
+To run the application locally, simply run 
 
-  
+```
+cd app
+python app.py
+```
 
-## Data Sources:
-- [https://sportsdata.io/](SportsDataIO)
+You should see the following which indicates that your app is running locally: 
+```
+* Serving Flask app 'app' (lazy loading)
+* Environment: production
+WARNING: This is a development server. Do not use it in a production deployment.
+Use a production WSGI server instead.
+* Debug mode: on
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+* Restarting with stat
+* Debugger is active!
+```
+
+## How to deploy the code to your web hosting service 
+
+### Deploy ETL to AWS Elastic Beanstalk 
+
+#### Build app
+
+Before we can deploy the app, we need to first build the app. 
+
+Building the app refers to packaging and compiling the app so that it is in a state that can be readily deployed onto the target platform (e.g. AWS, Heroku, Azure, GCP, etc). We can skip the compilation since Python is not a compiled language, however we still need to package the app. 
+
+To package the app, we will run the following lines of code: 
+
+<b>macOS</b>:
+```
+zip -r web-app.zip templates static
+zip -g web-app.zip app.py prediction.py requirements.txt Procfile
+```
+
+<b>windows</b>:
+
+Note for Windows-only - You will need to install 7z (7-zip) which is a command line tool used for zipping files. 
+
+1. Go to https://www.7-zip.org/ and download the version for your windows PC (usually 64-bit x64)
+2. Run the installer .exe file 
+3. Add the path `C:\Program Files\7-Zip` to your environment variables `path` 
+
+```
+7z a -tzip web-app.zip templates static
+7z a -tzip web-app.zip app.py prediction.py requirements.txt Procfile
+```
+
+This will produce a `.zip` file which contains all the code and library packages required to run the app on AWS Lambda.  
+
+For re-use, we've stored the commands in [build.sh](app/build.sh) and [build.bat](app/build.bat) respectively. 
+
+You can just build the app by running either 
+
+<b>macOS</b>:
+```
+. ./build.sh
+```
+
+<b>windows</b>:
+```
+build.bat
+```
+
+#### Deploy app
+
+1. In the AWS Console, search for "Elastic Beanstalk". 
+2. Choose the region closest to you on the top-right e.g. Sydney (ap-southeast-2)
+3. Select "Create Application" 
+4. Configure ELB. Note: Unless specified, leave the settings to default. 
+    1. Provide the application name 
+    2. Select Platform: "Python"
+    3. Select Platform Branch: "Python 3.8 running on 64bit Amazon Linux 2"
+    4. In the "Application code" section, select "Upload your code"
+        - Select "Local file" > "Choose file" and select the `.zip` file you have built 
+    5. Select "Configure more options" 
+        1. Select "Capacity" > "Edit" 
+            - Under "Instance types", ensure that only "t2.micro" is selected. 
+            - Select "Save" 
+    6. Select "Create app" 

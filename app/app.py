@@ -13,24 +13,6 @@ from prediction import predict, clean_cols
 #################################################
 app = Flask(__name__,static_url_path='/static')
 
-# USE THIS FOR AWS SET UP
-# # create database engine 
-# DB_USER = os.environ.get("DB_USER")
-# DB_PASSWORD = os.environ.get("DB_PASSWORD")
-# DB_SERVER_NAME = os.environ.get("DB_SERVER_NAME")
-# DB_DATABASE_NAME = os.environ.get("DB_DATABASE_NAME")
-
-# connection_url = URL.create(
-#     drivername = "postgresql+pg8000", 
-#     username = DB_USER,
-#     password = DB_PASSWORD,
-#     host = DB_SERVER_NAME, 
-#     port = 5432,
-#     database = DB_DATABASE_NAME, 
-# )
-
-# engine = create_engine(connection_url)
-
 #################################################
 # Database Setup
 #################################################
