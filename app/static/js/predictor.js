@@ -3,11 +3,11 @@
 fighter_list_url = "/api/fighter_list"
 
 d3.json(fighter_list_url).then((fighter) => {
-    fighter_list = fighter.name;
-    for (let [key, name] of Object.entries(fighter_list)) {
+    fighter_list = fighter.Name;
+    for (let [key, Name] of Object.entries(fighter_list)) {
         var option = d3.select("#selFighter1").append("option");
-        option.text(name);
-        option.attr("value",name);
+        option.text(Name);
+        option.attr("value",Name);
       };
 });
 
@@ -15,11 +15,11 @@ d3.json(fighter_list_url).then((fighter) => {
 fighter_list_url = "/api/fighter_list"
 
 d3.json(fighter_list_url).then((fighter) => {
-    fighter_list = fighter.name;
-    for (let [key, name] of Object.entries(fighter_list)) {
+    fighter_list = fighter.Name;
+    for (let [key, Name] of Object.entries(fighter_list)) {
         var option = d3.select("#selFighter2").append("option");
-        option.text(name);
-        option.attr("value",name);
+        option.text(Name);
+        option.attr("value",Name);
       };
 });
 

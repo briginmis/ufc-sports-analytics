@@ -28,7 +28,9 @@ def clean_cols(fighter1:pd.DataFrame, fighter2:pd.DataFrame):
                     "B_age",
                     "B_Stance",
                     "B_Height_cms",
-                    "B_Reach_cms"
+                    "B_Reach_cms",
+                    "B_winratio",
+                    "B_totalfights"
                     ]
 
     R_column_list = ["R_fighter",
@@ -54,34 +56,38 @@ def clean_cols(fighter1:pd.DataFrame, fighter2:pd.DataFrame):
                     "R_age",
                     "R_Stance",
                     "R_Height_cms",
-                    "R_Reach_cms"
+                    "R_Reach_cms",
+                    "R_winratio",
+                    "R_totalfights"
                     ]
 
-    new_column_list = ["name",
-                    "wins",
-                    "losses",
-                    "draw",
-                    "current_lose_streak",
-                    "current_win_streak",
-                    "avg_SIG_STR_landed",
-                    "avg_SIG_STR_pct",
-                    "avg_SUB_ATT",
-                    "avg_TD_landed",
-                    "avg_TD_pct",
-                    "longest_win_streak",
-                    "total_rounds_fought",
-                    "total_title_bouts",
-                    "win_by_Decision_Majority",
-                    "win_by_Decision_Split",
-                    "win_by_Decision_Unanimous",
-                    "win_by_KO/TKO",
-                    "win_by_Submission",
-                    "win_by_TKO_DoctoStoppage",
-                    "age",
-                    "Stance",
-                    "Height_cms",
-                    "Reach_cms"
-                    ]
+    new_column_list = ["Name",
+                "Wins",
+                "Losses",
+                "Draws",
+                "Current lose streak",
+                "Current win streak",
+                "Average significant strikes landed",
+                "Average significant strike %",
+                "Average submissions attempted",
+                "Average takedowns landed",
+                "Average takedown %",
+                "Longest win streak",
+                "Total rounds fought",
+                "Total title bouts",
+                "Wins by majority decision",
+                "Wins by split decision",
+                "Wins by unanimous decision",
+                "Wins by KO/TKO",
+                "Wins by Submission",
+                "Wins by Doctor Stoppage",
+                "Age",
+                "Stance",
+                "Height (cm)",
+                "Reach (cm)",
+                "Win ratio",
+                "Total fights"
+                ]
     
     R_col_replace = {}
     B_col_replace = {}
