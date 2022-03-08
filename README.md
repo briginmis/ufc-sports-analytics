@@ -12,7 +12,7 @@ The main aim of this project is to determine who is the Ultimate Fighter. Who is
 
 We will begin by training a machine learning model to predict the outcome of a fight. Using the most significant features identified from the machine learning model, we can then determine who is the Greatest Fighter of All Time.
 
-We will also provide some fun statistics to display the diverse range of MMA athletes.
+We will also analyse the data to determine if there are any other factors which characterise a winner.
 
 You can view the final solution [here](http://ufcprediction-env.eba-3sujs7yp.ap-southeast-2.elasticbeanstalk.com/).
 
